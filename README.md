@@ -13,8 +13,11 @@ Pour lancer le projet il suffit de lancer un terminale depuis le dossier du proj
 
 ```bash
 npx tsc
+```
+```bash
 node build/index.js
 ```
+
 Le port d'écoute du serveur est par défaut à 8080 mais vous pouvez le changer en créant/modifiant votre variable d'environement PING_LISTEN_PORT.
 
 Pour récupérer les données de l'api vous devez lancer la commande suivante. N'oubliez pas de remplacer 8080 par le port de votre variable d'environement PING_LISTEN_PORT.
