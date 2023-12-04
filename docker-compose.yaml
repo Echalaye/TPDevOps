@@ -1,0 +1,25 @@
+version: '3'
+services:
+  ts-api-docker:
+    restart: always
+    build:
+      context: .
+      dockerfile: multi_stage.dockerfile
+    environment:
+      PING_LISTEN_PORT: 3000
+    deploy:
+      replicas: 4
+    volumes:
+      - ./:/usr/src/app
+
+  nginx:
+    image: nginx:latest
+    restart: always
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - ts-api-docker
+
+
