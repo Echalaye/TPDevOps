@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  namespace: tp4
+  name: part2
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: part2
+  template:
+    metadata:
+      labels:
+        app: part2
+    spec:
+      containers:
+      - name: api
+        image: registry.cluster.wik.cloud/public/echo
+        ports:
+        - containerPort: 8080
